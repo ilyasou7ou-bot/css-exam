@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض الوسائط المتعددة شكرا للمهندس codershiyar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* أنماط CSS */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --success-color: #4bb543;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f5f7ff;
+            direction: rtl;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* أنماط الرأس */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-left: 10px;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* أنماط الأقسام */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--gray-color);
+            font-size: 1.1rem;
+        }
+
+        /* أنماط معرض الصور */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-content {
+            padding: 1.2rem;
+        }
+
+        .gallery-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .gallery-description {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+        }
+
+        /* أنماط قسم الفيديو */
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .video-element {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-content {
+            padding: 1.2rem;
+        }
+
+        .video-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .video-description {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+        }
+
+        /* أنماط قسم الصوتيات */
+        .audio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .audio-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .audio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .audio-header {
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .audio-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .audio-artist {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .audio-player {
+            padding: 1.2rem;
+        }
+
+        audio {
+            width: 100%;
+            height: 40px;
+        }
+
+        /* أنماط التذييل */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-right: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* وسائط الاستعلام للتجاوب */
+        @media (max-width: 992px) {
+            .gallery, .video-container, .audio-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+                margin-right: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+            }
+
+            nav {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            nav.active {
+                max-height: 300px;
+            }
+
+            section {
+                padding: 2.5rem 0;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery, .video-container, .audio-container {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الرأس -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i>🎨</i>
+                thanks codershiyar😉
+                </div>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#gallery">الصور</a></li>
+                        <li><a href="#videos">الفيديوهات</a></li>
+                        <li><a href="#audio">المقاطع الصوتية</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم الصور -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>معرض الصور</h2>
+            </div>
+            <p class="section-description">
+                استمتع بمجموعة مختارة من الصور عالية الجودة التي تظهر جمال الطبيعة والإبداع البشري في مختلف المجالات.
+            </p>
+            <div class="gallery">
+                <!-- عناصر الصور -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="الطبيعة الخلابة" class="gallery-img">
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">الطبيعة الخلابة</h3>
+                        <p class="gallery-description">منظر طبيعي خلاب يجمع بين الجبال والبحيرات والسماء الصافية.</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="العمارة الحديثة" class="gallery-img">
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">العمارة الحديثة</h3>
+                        <p class="gallery-description">تصميم معماري مذهل يجمع بين الحداثة والجمال البصري.</p>
+                    </div>
+                </div>
+                
+        
+                
+                <div class="gallery-item">
+                    <img src="data:image/jpeg;base64,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" alt="التصوير الليلي" class="gallery-img">
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">التصوير الليلي</h3>
+                        <p class="gallery-description">صورة ليلية تظهر جمال المدينة تحت ضوء النجوم والقمر.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الفيديوهات -->
+    <section id="videos" style="background-color: #f0f2f5;">
+        <div class="container">
+            <div class="section-title">
+                <h2>مقاطع الفيديو</h2>
+            </div>
+            <p class="section-description">
+                شاهد مجموعة متنوعة من مقاطع الفيديو عالية الجودة التي تغطي مواضيع مختلفة من الإبداع والثقافة والمعرفة.
+            </p>
+            <div class="video-container">
+                <!-- عناصر الفيديو -->
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <video class="video-element" controls poster="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="video-title">الأرنب العملاق</h3>
+                        <p class="video-description">فيديو رسوم متحركة قصير عن أرنب عملاق ومغامراته المثيرة.</p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <video class="video-element" controls poster="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="video-title">حلم الفيلة</h3>
+                        <p class="video-description">فيلم رسوم متحركة قصير عن رحلة خيالية في عالم الأحلام.</p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <video class="video-element" controls poster="https://images.unsplash.com/photo-1558618666-fcd25856cd8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80">
+                            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="video-title">للهيب الأكبر</h3>
+                        <p class="video-description">عرض توضيحي لجودة الفيديو العالية مع مشاهد نارية مذهلة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المقاطع الصوتية -->
+    <section id="audio">
+        <div class="container">
+            <div class="section-title">
+                <h2>المقاطع الصوتية</h2>
+            </div>
+            <p class="section-description">
+                استمع إلى مجموعة مختارة من المقاطع الصوتية التي تشمل الموسيقى، البودكاست، والتسجيلات الصوتية المميزة.
+            </p>
+            <div class="audio-container">
+                <!-- عناصر الصوت -->
+                <div class="audio-item">
+                    <div class="audio-header">
+                        <h3 class="audio-title">موسيقى</h3>
+                        <p class="audio-artist">ملحن مجهول</p>
+                    </div>
+                    <div class="audio-player">
+                        <audio controls>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                            متصفحك لا يدعم مشغل الصوت.
+                        </audio>
+                    </div>
+                </div>
+                
+                <div class="audio-item">
+                    <div class="audio-header">
+                        <h3 class="audio-title">موسيقى</h3>
+                        <p class="audio-artist">أحمد الثقافي</p>
+                    </div>
+                    <div class="audio-player">
+                        <audio controls>
+                            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                            متصفحك لا يدعم مشغل الصوت.
+                        </audio>
+                    </div>
+                </div>
+                
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن الموقع</h3>
+                    <p>موقع معرض الوسائط يقدم مجموعة متنوعة من الصور والفيديوهات والمقاطع الصوتية عالية الجودة لجميع الزوار.</p>
+                    <div class="social-links">
+                        <a href="#"><span>f</span></a>
+                        <a href="#"><span>t</span></a>
+                        <a href="#"><span>in</span></a>
+                        <a href="#"><span>ig</span></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#gallery">معرض الصور</a></li>
+                        <li><a href="#videos">مقاطع الفيديو</a></li>
+                        <li><a href="#audio">المقاطع الصوتية</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li>البريد الإلكتروني: info@media-gallery.com</li>
+                        <li>الهاتف: +966 123 456 789</li>
+                        <li>العنوان: الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2023 معرض الوسائط</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
